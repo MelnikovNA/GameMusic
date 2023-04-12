@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/150water.mp3-74ed998c2e7cab78cad82f451ffec385.mp3str"
+
+[deps]
+
+source_file="res://minigame/Script/150water.mp3"
+dest_files=[ "res://.import/150water.mp3-74ed998c2e7cab78cad82f451ffec385.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
