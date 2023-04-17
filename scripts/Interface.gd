@@ -18,7 +18,7 @@ onready var save_dir = "res://Saves"
 var mini_game1="res://Table.tscn"
 
 var glass1 = {'bought' : 0,
-			  'lvl': 0,
+			  'lvl': 1,
 			  'upgrade': 10,
 			  'upgrade_cost': 10,
 			  '300ml_water3': 0,
@@ -91,21 +91,29 @@ func save_load():
 	file.close()
 	
 func load_data():
-	file.open("user://Goldcount.txt", file.READ)
-	gold_count = file.get_line().to_int()
-	player_name = file.get_line()
-	file.close()
+	if file.file_exists("user://Goldcount.txt"):
+		file.open("user://Goldcount.txt", file.READ)
+		gold_count = file.get_line().to_int()
+		player_name = file.get_line()
+		file.close()
+	else:
+		file.open("user://Goldcount.txt", file.READ)
+		file.close()
 	
-	file.open("user://Glass1.txt", file.READ)
-	glass1['bought'] = file.get_line().to_int()
-	glass1['lvl'] = file.get_line().to_int()
-	glass1['upgrade'] = file.get_line().to_int()
-	glass1['upgrade_cost'] = file.get_line().to_int()
-	glass1['150ml_water2'] = file.get_line().to_int()
-	glass1['300ml_water3'] = file.get_line().to_int()
-	glass1['150ml_honey'] = file.get_line().to_int()
-	glass1['300ml_honey'] = file.get_line().to_int()
-	file.close()
+	if file.file_exists("user://Goldcount.txt"):
+		file.open("user://Glass1.txt", file.READ)
+		glass1['bought'] = file.get_line().to_int()
+		glass1['lvl'] = file.get_line().to_int()
+		glass1['upgrade'] = file.get_line().to_int()
+		glass1['upgrade_cost'] = file.get_line().to_int()
+		glass1['150ml_water2'] = file.get_line().to_int()
+		glass1['300ml_water3'] = file.get_line().to_int()
+		glass1['150ml_honey'] = file.get_line().to_int()
+		glass1['300ml_honey'] = file.get_line().to_int()
+		file.close()
+	else:
+		file.open("user://Glass1.txt", file.READ)
+		file.close()
 	
 
 

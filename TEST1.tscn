@@ -86,33 +86,33 @@ margin_top = -175.0
 margin_right = 82.0
 margin_bottom = -6.0
 
-[node name="300ml_water3" type="Button" parent="Area2D/Panel/Types/Panel2"]
-margin_left = 7.0
-margin_top = 55.0
-margin_right = 99.0
-margin_bottom = 75.0
-text = "300ml water"
-
 [node name="150ml_honey" type="Button" parent="Area2D/Panel/Types/Panel2"]
 margin_left = 8.0
 margin_top = 94.0
 margin_right = 104.0
 margin_bottom = 114.0
-text = "150ml honey"
+text = "600 g"
 
 [node name="150ml_water2" type="Button" parent="Area2D/Panel/Types/Panel2"]
 margin_left = 7.0
 margin_top = 18.0
 margin_right = 99.0
 margin_bottom = 38.0
-text = "150ml water"
+text = "150 g"
+
+[node name="300ml_water3" type="Button" parent="Area2D/Panel/Types/Panel2"]
+margin_left = 7.0
+margin_top = 55.0
+margin_right = 99.0
+margin_bottom = 75.0
+text = "300 g"
 
 [node name="300ml_honey" type="Button" parent="Area2D/Panel/Types/Panel2"]
 margin_left = 7.0
 margin_top = 126.0
 margin_right = 103.0
 margin_bottom = 146.0
-text = "300ml honey"
+text = "1200 g"
 
 [node name="info" type="Label" parent="Area2D/Panel"]
 margin_left = 101.0
@@ -141,7 +141,7 @@ stream = ExtResource( 5 )
 [connection signal="pressed" from="Area2D/Panel/takegold" to="Area2D" method="_on_takegold_pressed"]
 [connection signal="pressed" from="Area2D/Panel/Lvlup" to="Area2D" method="_on_Lvlup_pressed"]
 [connection signal="pressed" from="Area2D/Panel/Types" to="Area2D" method="_on_Types_pressed"]
-[connection signal="pressed" from="Area2D/Panel/Types/Panel2/300ml_water3" to="Area2D" method="_on_300ml_water3_pressed"]
 [connection signal="pressed" from="Area2D/Panel/Types/Panel2/150ml_honey" to="Area2D" method="_on_150ml_honey_pressed"]
 [connection signal="pressed" from="Area2D/Panel/Types/Panel2/150ml_water2" to="Area2D" method="_on_150ml_water2_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types/Panel2/300ml_water3" to="Area2D" method="_on_300ml_water3_pressed"]
 [connection signal="pressed" from="Area2D/Panel/Types/Panel2/300ml_honey" to="Area2D" method="_on_300ml_honey_pressed"]
