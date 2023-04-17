@@ -53,7 +53,6 @@ frames = SubResource( 2 )
 animation = "300honey"
 
 [node name="Panel" type="Panel" parent="Area2D"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -132.0
 margin_top = 40.0

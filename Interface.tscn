@@ -23,6 +23,7 @@ margin_left = 945.0
 margin_top = 15.0
 margin_right = 1007.0
 margin_bottom = 39.0
+custom_colors/font_color = Color( 0.898039, 0.0313726, 0.0313726, 1 )
 
 [node name="ChatBox" parent="." instance=ExtResource( 3 )]
 margin_left = 4.0
@@ -45,15 +46,6 @@ margin_right = 2882.0
 margin_bottom = 2535.0
 rect_scale = Vector2( 0.03, 0.03 )
 icon = ExtResource( 5 )
-
-[node name="UserName" type="Label" parent="."]
-margin_left = 900.0
-margin_top = 53.0
-margin_right = 1010.0
-margin_bottom = 91.0
-custom_colors/font_color = Color( 1, 0.0313726, 0.0313726, 1 )
-custom_colors/font_outline_modulate = Color( 0.756863, 0.74902, 0.74902, 1 )
-custom_colors/font_color_shadow = Color( 0.776471, 0.223529, 0.223529, 1 )
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -92,6 +84,14 @@ margin_right = 844.0
 margin_bottom = 578.0
 text = "Play"
 
+[node name="Name" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 906.0
+margin_top = 55.0
+margin_right = 1013.0
+margin_bottom = 105.0
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="Panel/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

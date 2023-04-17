@@ -7,16 +7,32 @@ var timer_gold = 0
 var timer_on = false
 var timer_prev = 0;
 var gold = 0
+
 var upgrade = 10
 var now_gold = 0
 var lvl = 1
+
 var max_lvl = false
 var upgrade_cost = 10
+
+var vis = false
+
+var types = {'300ml_water3': 0,
+			 '150ml_water2': 0,
+			 '150ml_honey': 0,
+			 '300ml_honey':0}
+
 onready var UI  = get_node("../../Interface")
 
 
 
+
 func _ready():
+	$"..".visible = false
+	if UI.load_glass1('bought'):
+		lvl = UI.load_glass1('lvl')
+		upgrade = UI.load_glass1('upgrade')
+		upgrade_cost = UI.load_glass1('upgrade_cost')
 	$Panel.visible = false
 	$Panel/Types/Panel2.visible=false
 	$AnimatedSprite.play("150water")
@@ -30,20 +46,22 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		
 
 func _process(delta):
-	$Panel/takegold.text = str(gold) + " Gold"
-	if max_lvl:
-		$Panel/info.text = "Glass Max lvl"
-		$Panel/Lvlup.text = "Max LVLUP"
-	else:
-		$Panel/info.text = "Glass " + str(lvl)+ "lvl"
-		$Panel/Lvlup.text = str(upgrade_cost)+ " LVLUP"
-	timer_gold+=delta
-	if ((timer_gold - timer_prev)>1):
-		timer_prev=timer_gold
-		gold+=upgrade
-	
-	if(timer_on):
-		timer_sel+=delta
+	if UI.load_glass1('bought'):
+		$"..".visible = true
+		$Panel/takegold.text = str(gold) + " Gold"
+		if lvl == 10:
+			$Panel/info.text = "Glass Max lvl"
+			$Panel/Lvlup.text = "Max LVLUP"
+		else:
+			$Panel/info.text = "Glass " + str(lvl)+ "lvl"
+			$Panel/Lvlup.text = str(upgrade_cost)+ " LVLUP"
+		timer_gold+=delta
+		if ((timer_gold - timer_prev)>1):
+			timer_prev=timer_gold
+			gold+=upgrade
+		
+		if(timer_on):
+			timer_sel+=delta
 
 	
 func _physics_process(delta):
@@ -70,11 +88,13 @@ func _on_Lvlup_pressed():
 	now_gold = UI.info_gold()
 	print(now_gold)
 	if now_gold >= upgrade_cost and lvl<10:
-		print(1)
 		UI.purchase(upgrade_cost)
 		lvl+=1
+		UI.glass1_info('lvl', lvl)
 		upgrade*=2
+		UI.glass1_info('upgrade', upgrade)
 		upgrade_cost*=4
+		UI.glass1_info('upgrade_cost', upgrade_cost)
 		if lvl==10:
 			max_lvl = true
 
@@ -82,12 +102,15 @@ func _on_Types_pressed():
 	$Panel/Types/Panel2.visible = true
 
 func _on_300ml_water3_pressed():
-	$AnimatedSprite.play("300water")
-	$"../honey150".stop()
-	$"../water150".stop()
-	$"../honey300".stop()
-	$"../water300".play()
-	$Panel/Types/Panel2.visible=false
+		
+
+	if types['300ml_water3']:
+		$AnimatedSprite.play("300water")
+		$"../honey150".stop()
+		$"../water150".stop()
+		$"../honey300".stop()
+		$"../water300".play()
+		$Panel/Types/Panel2.visible=false
 
 
 func _on_150ml_honey_pressed():
