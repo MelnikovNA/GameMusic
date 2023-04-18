@@ -117,5 +117,38 @@ func load_data():
 	
 
 
-func _on_Button_pressed():
-	glass1['bought'] = 1
+
+#Market button
+func _on_TextureButton_pressed():
+	if $MarketPanel.visible == false:
+		$MarketPanel.visible = true
+	else:
+		$MarketPanel.visible = false
+
+
+func _on_Glass1Button_pressed():
+	$MarketPanel/Glass1Button.text = "bought"
+	if gold_count >= 100 and !(glass1['bought']):
+		glass1['bought'] = 1
+		purchase(100)
+		print("Glass 1 bough:", glass1['bought'])
+	else:
+		print("Enable to buy!!!")
+		
+
+func _on_Glass2Button_pressed():
+	if gold_count >= 1000 and !(glass2['bought']):
+		glass2['bought'] = 1
+		purchase(1000)
+		print("Glass 2 bough:", glass2['bought'])
+	else:
+		print("Enable to buy!!!")
+
+
+func _on_Glass3Button_pressed():
+	if gold_count >= 10000 and !(glass3['bought']):
+		glass3['bought'] = 1
+		purchase(10000)
+		print("Glass 3 bough:", glass3['bought'])
+	else:
+		print("Enable to buy!!!")

@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/Interface.gd" type="Script" id=1]
 [ext_resource path="res://Sprites&Audio/pngwing.com (3).png" type="Texture" id=2]
 [ext_resource path="res://ChatBox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites&Audio/Interface/—Pngtree—vector cart icon_4144530.png" type="Texture" id=4]
 [ext_resource path="res://Sprites&Audio/Interface/—Pngtree—black gear_5911647.png" type="Texture" id=5]
+[ext_resource path="res://MarketScript.gd" type="Script" id=6]
+[ext_resource path="res://addons/github-integration/fonts/SEGOEUI.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://Sprites&Audio/150water.png" type="Texture" id=8]
+[ext_resource path="res://minigame/Icons/Glass/Бокал2.0.png" type="Texture" id=9]
+[ext_resource path="res://minigame/Icons/Glass/Бокал3.1.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 7 )
 
 [node name="Interface" type="Control"]
 anchor_right = 0.168
@@ -46,6 +55,73 @@ margin_right = 2882.0
 margin_bottom = 2535.0
 rect_scale = Vector2( 0.03, 0.03 )
 icon = ExtResource( 5 )
+
+[node name="MarketPanel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.921569 )
+margin_left = 351.0
+margin_top = 166.0
+margin_right = 942.0
+margin_bottom = 475.0
+script = ExtResource( 6 )
+
+[node name="Glass1Button" type="Button" parent="MarketPanel"]
+anchor_left = 0.096
+anchor_top = 0.696
+anchor_right = 0.29
+anchor_bottom = 0.845
+margin_left = 1.784
+margin_top = -1.06401
+margin_right = 0.159988
+margin_bottom = -0.105011
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "100 g"
+
+[node name="Glass2Button" type="Button" parent="MarketPanel"]
+anchor_left = 0.366
+anchor_top = 0.689
+anchor_right = 0.56
+anchor_bottom = 0.845
+margin_left = 30.0
+margin_top = -2.0
+margin_right = 30.0
+margin_bottom = -2.0
+
+[node name="Glass3Button" type="Button" parent="MarketPanel"]
+anchor_left = 0.709
+anchor_top = 0.683
+anchor_right = 0.9
+anchor_bottom = 0.838
+margin_left = -0.150024
+margin_top = -0.0470123
+margin_right = -0.149963
+margin_bottom = 0.0579834
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarketPanel"]
+anchor_left = 0.456
+anchor_top = 0.039
+anchor_right = 0.573
+anchor_bottom = 0.175
+margin_left = -0.0400085
+margin_top = -0.0510006
+margin_right = 0.227966
+margin_bottom = -0.0750046
+custom_fonts/normal_font = SubResource( 1 )
+text = "Market"
+
+[node name="Glass1" type="Sprite" parent="MarketPanel"]
+position = Vector2( 116, 168 )
+scale = Vector2( 1.68, 1.68 )
+texture = ExtResource( 8 )
+
+[node name="Glass2" type="Sprite" parent="MarketPanel"]
+position = Vector2( 308, 172 )
+scale = Vector2( 2.1875, 2.1875 )
+texture = ExtResource( 9 )
+
+[node name="Glass3" type="Sprite" parent="MarketPanel"]
+position = Vector2( 477, 162 )
+scale = Vector2( 1.9375, 1.9375 )
+texture = ExtResource( 10 )
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -91,7 +167,11 @@ margin_top = 55.0
 margin_right = 1013.0
 margin_bottom = 105.0
 
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="MarketPanel/Glass1Button" to="." method="_on_Glass1Button_pressed"]
+[connection signal="pressed" from="MarketPanel/Glass2Button" to="." method="_on_Glass2Button_pressed"]
+[connection signal="pressed" from="MarketPanel/Glass3Button" to="." method="_on_Glass3Button_pressed"]
 [connection signal="text_changed" from="Panel/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="Panel/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]

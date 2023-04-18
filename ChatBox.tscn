@@ -18,6 +18,7 @@ margin_bottom = 249.0
 text = ">"
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 margin_left = 7.0
 margin_top = 61.0
 margin_right = 207.0
@@ -28,7 +29,6 @@ margin_left = 194.0
 margin_top = 116.0
 margin_right = 214.0
 margin_bottom = 175.0
-text = "<"
 
 [node name="Text_to_send" type="LineEdit" parent="Panel"]
 margin_left = 9.0
