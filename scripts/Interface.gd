@@ -65,7 +65,7 @@ func _on_Play_pressed():
 	$Panel.visible=false
 
 func _on_Button2_pressed():
-	get_tree().change_scene(mini_game1)
+	get_tree().quit()
 
 func load_glass1(name):
 	return glass1[name]
@@ -152,3 +152,5 @@ func _on_Glass3Button_pressed():
 		print("Glass 3 bough:", glass3['bought'])
 	else:
 		print("Enable to buy!!!")
+
+

@@ -11,11 +11,11 @@ position = Vector2( 515, 299 )
 scale = Vector2( 1.46571, 0.851429 )
 texture = ExtResource( 2 )
 
-[node name="Glass1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 539, 284 )
-
 [node name="Interface" parent="." instance=ExtResource( 1 )]
 margin_left = -5.0
 margin_top = -10.0
 margin_right = -5.0
 margin_bottom = -10.0
+
+[node name="Glass1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 539, 284 )

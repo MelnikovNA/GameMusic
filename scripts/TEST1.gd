@@ -43,7 +43,7 @@ func _ready():
 	#$"../water150".play()
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	if Input.is_action_pressed("Click"):
+	if Input.is_action_pressed("Click") or InputEventScreenTouch:
 		selected = true
 		timer_on = true
 		$Panel.visible = true
