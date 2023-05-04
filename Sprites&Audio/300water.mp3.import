@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/300water.mp3-45acb32fa21f729e70f2f3c9f2b8cd48.mp3str"
+
+[deps]
+
+source_file="res://Sprites&Audio/300water.mp3"
+dest_files=[ "res://.import/300water.mp3-45acb32fa21f729e70f2f3c9f2b8cd48.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

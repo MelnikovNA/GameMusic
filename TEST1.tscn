@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites&Audio/150water.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/TEST1.gd" type="Script" id=2]
+[ext_resource path="res://Sprites&Audio/150honey.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sprites&Audio/300honey.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Sprites&Audio/300water.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sprites&Audio/150honey2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites&Audio/300honey2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites&Audio/300honey.png" type="Texture" id=8]
+[ext_resource path="res://Sprites&Audio/300water.png" type="Texture" id=9]
+[ext_resource path="res://Sprites&Audio/300water2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites&Audio/150water2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites&Audio/150honey.png" type="Texture" id=12]
+[ext_resource path="res://Sprites&Audio/150water.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "150honey",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "150water",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "300honey",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "300water",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 33.25, 41.5 )
+
+[node name="Glass1" type="Node2D"]
+position = Vector2( 508, 289 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+position = Vector2( 3.00005, -2 )
+scale = Vector2( 2.321, 2.321 )
+frames = SubResource( 2 )
+animation = "300honey"
+
+[node name="Panel" type="Panel" parent="Area2D"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -132.0
+margin_top = 40.0
+margin_right = 136.0
+margin_bottom = 80.0
+
+[node name="takegold" type="Button" parent="Area2D/Panel"]
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 61.0
+margin_bottom = 32.0
+text = "GOLD"
+
+[node name="Lvlup" type="Button" parent="Area2D/Panel"]
+margin_left = 109.0
+margin_top = 11.0
+margin_right = 175.0
+margin_bottom = 31.0
+text = "LVLup"
+
+[node name="Types" type="Button" parent="Area2D/Panel"]
+margin_left = 212.0
+margin_top = 11.0
+margin_right = 264.0
+margin_bottom = 31.0
+text = "Types"
+
+[node name="Panel2" type="Panel" parent="Area2D/Panel/Types"]
+margin_left = -23.0
+margin_top = -175.0
+margin_right = 82.0
+margin_bottom = -6.0
+
+[node name="150ml_honey" type="Button" parent="Area2D/Panel/Types/Panel2"]
+margin_left = 8.0
+margin_top = 94.0
+margin_right = 104.0
+margin_bottom = 114.0
+text = "600 g"
+
+[node name="150ml_water2" type="Button" parent="Area2D/Panel/Types/Panel2"]
+margin_left = 7.0
+margin_top = 18.0
+margin_right = 99.0
+margin_bottom = 38.0
+text = "150 g"
+
+[node name="300ml_water3" type="Button" parent="Area2D/Panel/Types/Panel2"]
+margin_left = 7.0
+margin_top = 55.0
+margin_right = 99.0
+margin_bottom = 75.0
+text = "300 g"
+
+[node name="300ml_honey" type="Button" parent="Area2D/Panel/Types/Panel2"]
+margin_left = 7.0
+margin_top = 126.0
+margin_right = 103.0
+margin_bottom = 146.0
+text = "1200 g"
+
+[node name="info" type="Label" parent="Area2D/Panel"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 101.0
+margin_top = -95.0
+margin_right = 163.0
+margin_bottom = -81.0
+align = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 1.5 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="honey150" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="water150" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="honey300" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="water300" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
+[connection signal="pressed" from="Area2D/Panel/takegold" to="Area2D" method="_on_takegold_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Lvlup" to="Area2D" method="_on_Lvlup_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types" to="Area2D" method="_on_Types_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types/Panel2/150ml_honey" to="Area2D" method="_on_150ml_honey_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types/Panel2/150ml_water2" to="Area2D" method="_on_150ml_water2_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types/Panel2/300ml_water3" to="Area2D" method="_on_300ml_water3_pressed"]
+[connection signal="pressed" from="Area2D/Panel/Types/Panel2/300ml_honey" to="Area2D" method="_on_300ml_honey_pressed"]
