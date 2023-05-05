@@ -155,4 +155,4 @@ func _on_Glass3Button_pressed():
 
 
 func _on_TextureButton3_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://Game/Node2D.tscn")

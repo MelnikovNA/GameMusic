@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mi.mp3-e224908c63e04d7b46a73cb60be2b50e.mp3str"
+
+[deps]
+
+source_file="res://Game/assets/music/mi.mp3"
+dest_files=[ "res://.import/mi.mp3-e224908c63e04d7b46a73cb60be2b50e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sol.mp3-e669aa872c9469477d97ba54c80e93c6.mp3str"
+
+[deps]
+
+source_file="res://Game/assets/music/sol.mp3"
+dest_files=[ "res://.import/sol.mp3-e669aa872c9469477d97ba54c80e93c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
